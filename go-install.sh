@@ -2,16 +2,12 @@
 
 currentDir=$(pwd)
 currentAt="You're currently at $currentDir"
-wordDirPath=$HOME/work
+workDirPath=$HOME/work
 
 
 echo "Go Installation - Linux"
 echo "Installation done at $HOME/go"
 echo "Downloading latest Go Installation files of Internet"
-
-echo $1
-echo $currentAt
-echo $HOME
 
 echo "Downloading files"
 wget $1
@@ -42,6 +38,7 @@ fmt.Printf("hello, world\n")
 EOF
 
 cd $HOME/work/src
+echo "Compiling Hello World program"
 go install github.com/user/hello
 
 echo "Printing Hello World"
