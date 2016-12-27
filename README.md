@@ -1,6 +1,6 @@
 # installation-scripts
 
-- Linux installation scripts
-- Contains misc. installation scripts for debian,fedora-like system.
+- Linux/Unix installation scripts
+- Contains misc. installation scripts for debian,fedora,freebsd-like system.
 
 
