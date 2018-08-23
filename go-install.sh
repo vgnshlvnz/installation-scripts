@@ -15,6 +15,7 @@ tar -xvzf go*.tar.gz
 echo "Creating go workspace at $workDirPath"
 mkdir $HOME/work
 mv go/ $HOME
+#add persistent path, to allow go-related files available system-wide 
 export GOROOT=$HOME/go
 export PATH=$PATH:$GOROOT/bin
 export GOPATH=$HOME/work
@@ -28,7 +29,17 @@ cd $HOME/work/src/github.com/user/hello
 echo "Creating Simple Hello World Application"
 touch hello.go
 
-cat <<EOF
+#cat <<EOF
+#package main
+#import "fmt"
+
+#func main() {
+#fmt.Printf("hello, world\n")
+#}
+#EOF
+
+#below code works charm - thanks to stackoverflow guy who showed how to do it 
+cat <<EOF>> hello.go
 package main
 import "fmt"
 
@@ -36,6 +47,7 @@ func main() {
 fmt.Printf("hello, world\n")
 }
 EOF
+
 
 cd $HOME/work/src
 echo "Compiling Hello World program"
