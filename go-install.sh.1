@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+#refer original file
+#this file is imcomplete with some beautification in the code
+
+
+#refer link: https://stackoverflow.com/questions/3746079/can-i-execute-nested-or-chained-commands-in-unix-shell
+
+# x=$(grep $(dirname "$path") file) : dirname $path will work first followed by grep, searching for the result of dirname in the file
+
+
+currentDir=$(pwd)
+currentTime=`date +%d%m%Y-%H%M%S`
+successLog=`touch $HOME/install-log-$currentTime.log`
+errorLog=`touch $HOME/error-log-$currentTime.log`
+
+
+echo "You are in $currentDir"
+echo $currentTime
+echo $successLog
+echo $errorLog
+
+#nested if loop, to validate the existence of install,error log files
+
+echo "Checking if log file(s) exist in $HOME"
+if [[ `ls *.log 2> /dev/null| wc -l` -gt 0 ]]; then
+	echo "Continuing installation"
+else
+	echo "Log file(s) does not exist in $HOME directory"
+	echo "Will create now"
+	echo $successLog
+	echo $errorLog
+fi
+
+echo "hi"
